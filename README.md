@@ -23,7 +23,7 @@ Hydrogen is an alternative to Next.js for headless eCommerce, and this repo is m
 
 ## Versions
 
-# 5/16/2022:
+### 5/16/2022:
 
 - Converted "featured collection" section into "Brands" section
 - Updated landing page to have a better hero image, removed hover subtext, and improved color consistency of backgrounds
