@@ -23,21 +23,21 @@ export default function Header({collections}) {
   }, [isCartOpen]);
 
   return (
-    <header className="h-20 lg:h-32" role="banner">
+    <header className="h-20 lg:h-28 " role="banner">
       <div
-        className={`fixed z-20 mx-auto h-20 w-full border-b border-gray-200 bg-white px-6 md:px-8 md:py-6 lg:h-32 lg:pt-8 lg:pb-0 ${
+        className={`fixed z-20 mx-auto w-full border-b border-gray-200 bg-white px-6 shadow-lg md:px-8 lg:py-4 xl:py-8      ${
           isMobileNavOpen ? '' : ''
         }`}
       >
         <div
-          className="flex h-full w-full place-content-between lg:flex-col"
+          className="flex w-full place-content-between lg:flex-col"
           style={{
             paddingRight: isCartOpen ? scrollbarWidth : 0,
           }}
         >
-          <div className="mx-auto flex w-4/5 items-center justify-between text-center">
+          <div className="mx-auto flex w-11/12 items-center justify-between text-center xl:w-4/5">
             <Link
-              className="text-3xl font-semibold uppercase tracking-widest text-black"
+              className="text-3xl font-semibold uppercase tracking-widest text-black xl:text-4xl"
               to="/"
             >
               Shoe<span className="text-burgundy">Stop</span>

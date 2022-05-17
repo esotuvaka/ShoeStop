@@ -8,14 +8,14 @@ export default function LoadMoreProducts({startingCount}) {
   const {pending, serverProps, setServerProps} = useServerProps();
 
   return (
-    <div className="flex justify-center h-14">
+    <div className="flex h-14 justify-center">
       {pending ? (
         <SpinnerIcon />
       ) : (
         <button
           type="button"
           disabled={pending}
-          className={`uppercase border-4 bg-white border-black text-black text-center px-5 py-3 font-mono font-bold drop-shadow-lg active:drop-shadow-none hover:bg-black hover:text-white hover:border-white ${
+          className={`border-4 border-black bg-white px-5 py-3 text-center font-mono font-bold uppercase text-black drop-shadow-lg hover:border-white hover:bg-black hover:text-white active:drop-shadow-none ${
             pending ? 'opacity-50' : undefined
           }`}
           onClick={() => {

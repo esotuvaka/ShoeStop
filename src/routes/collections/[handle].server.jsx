@@ -37,7 +37,7 @@ export default function Collection({
     <Layout>
       {/* the seo object will be expose in API version 2022-04 or later */}
       <Seo type="collection" data={collection} />
-      <h1 className="mb-6 mt-6 text-4xl font-bold text-gray-900 md:text-5xl">
+      <h1 className="mb-6 mt-6 text-4xl font-bold text-black md:text-5xl">
         {collection.title}
       </h1>
       <div
@@ -47,7 +47,7 @@ export default function Collection({
       <p className="mt-5 mb-5 text-sm text-gray-500">
         {products.length} {products.length > 1 ? 'products' : 'product'}
       </p>
-      <ul className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
           <li key={product.id}>
             <ProductCard product={product} />

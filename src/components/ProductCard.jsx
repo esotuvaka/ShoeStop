@@ -15,10 +15,9 @@ export default function ProductCard({product}) {
   }
 
   return (
-    <div className="text-md relative mx-5 mb-4 rounded-2xl bg-white py-8 transition-all duration-700">
-      <div className="text-9xl"></div>
+    <div className="text-md relative rounded-lg bg-white py-8   ">
       <Link to={`/products/${product.handle}`}>
-        <div className="relative mb-2 flex h-96 items-center justify-center overflow-hidden rounded-lg object-cover">
+        <div className="relative mb-2 flex h-64 items-center justify-center overflow-hidden rounded-lg object-cover py-8">
           {selectedVariant.image ? (
             <Image
               className="absolute h-full w-full transform bg-white bg-cover bg-center object-contain object-center transition-all duration-500 ease-in-out hover:scale-110"
@@ -26,19 +25,19 @@ export default function ProductCard({product}) {
             />
           ) : null}
           {!selectedVariant?.availableForSale && (
-            <div className="absolute top-3 left-3 rounded-3xl bg-black py-3 px-4 text-xs text-white">
+            <div className="absolute top-3 left-3 rounded-md bg-black py-3 px-4 text-xs text-white shadow-lg">
               OUT OF STOCK !
             </div>
           )}
         </div>
 
         <div className="mx-auto w-11/12">
-          <span className="mb-0.5 font-['Poppins'] text-3xl font-semibold text-black">
+          <h1 className="mb-0.5    font-['Poppins'] text-xl font-semibold text-black">
             {product.title}
-          </span>
+          </h1>
 
           {product.vendor && (
-            <p className="mt-2 mb-0.5 text-lg font-medium text-gray-900">
+            <p className="mt-2 mb-0.5 text-lg font-medium text-neutral-700">
               {product.vendor}
             </p>
           )}

@@ -3,13 +3,14 @@ import {
   useShopQuery,
   flattenConnection,
   Link,
+  Image,
   Seo,
   CacheDays,
 } from '@shopify/hydrogen';
 import gql from 'graphql-tag';
 
 import Layout from '../components/Layout.server';
-import FeaturedCollection from '../components/FeaturedCollection';
+
 import ProductCard from '../components/ProductCard';
 import Welcome from '../components/Welcome.server';
 import {Suspense} from 'react';
@@ -78,13 +79,13 @@ function FeaturedProductsBox({country}) {
     : null;
 
   return (
-    <div className="mb-10 rounded-xl bg-white p-12 shadow-xl">
+    <div className="my-10 rounded-xl bg-white p-12 shadow-xl">
       {featuredProductsCollection ? (
         <>
-          <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((product) => (
               <div
-                className="rounded-xl transition-all duration-500 hover:-translate-y-10 hover:shadow-xl"
+                className="rounded-xl border-2 border-transparent transition-all duration-500 hover:-translate-y-1 hover:border-neutral-900 hover:shadow-2xl"
                 key={product.id}
               >
                 <ProductCard product={product} />
@@ -92,11 +93,11 @@ function FeaturedProductsBox({country}) {
             ))}
           </div>
 
-          <div className="text-md mb-8 flex items-center justify-center text-center font-medium">
+          <div className="text-md flex h-full w-full items-center justify-center text-center font-medium">
             <span className="hidden md:inline-flex">
               <Link
                 to={`/collections/${featuredProductsCollection.handle}`}
-                className="rounded-lg bg-neutral-800 px-12 py-2 font-['Poppins'] text-xl font-semibold tracking-wide text-white transition-all duration-700 hover:-translate-y-0.5 hover:bg-neutral-700 hover:px-16 hover:shadow-2xl"
+                className="m-0 block w-full items-center justify-center rounded bg-black px-6 py-4 text-center  font-bold uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300"
               >
                 Featured Collection
               </Link>
@@ -105,7 +106,7 @@ function FeaturedProductsBox({country}) {
           <div className="text-center md:hidden">
             <Link
               to={`/collections/${featuredProductsCollection.handle}`}
-              className="rounded-lg bg-neutral-800 px-12 py-2 font-['Poppins'] text-xl font-semibold tracking-wide text-white transition-all duration-700 hover:-translate-y-0.5 hover:bg-neutral-700 hover:px-16 hover:shadow-2xl "
+              className="m-0 block w-full items-center justify-center rounded bg-black px-6 py-4 text-center  font-bold uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300"
             >
               Shop all
             </Link>
@@ -120,8 +121,9 @@ function FeaturedCollectionBox({country}) {
   const {languageCode} = useShop();
 
   const {data} = useShopQuery({
-    query: QUERY,
+    query: QUERY_FEATURED,
     variables: {
+      numCollections: 4,
       country: country.isoCode,
       language: languageCode,
     },
@@ -129,24 +131,75 @@ function FeaturedCollectionBox({country}) {
   });
 
   const collections = data ? flattenConnection(data.collections) : [];
-  const featuredCollection =
-    collections && collections.length > 1 ? collections[1] : collections[0];
 
-  return <FeaturedCollection collection={featuredCollection} />;
+  // return collections.map((collections) => {
+  //   return (
+  //     <FeaturedCollections collection={collections} key={collections.id} />
+  //   );
+  // });
+
+  return (
+    <div className="grid h-96 grid-cols-2 rounded-xl bg-white py-8 px-8 sm:grid-cols-4">
+      {collections.map((collection) => (
+        <li key={collection.id} className="relative list-none">
+          <div className="flex  items-center justify-center">
+            <Image
+              width="300"
+              height="300"
+              data={collection.image}
+              className="mx-auto h-full w-full transition-all duration-500 ease-in-out hover:scale-110"
+            ></Image>
+          </div>
+
+          <Link
+            to={`/collections/${collection.handle}`}
+            className="absolute inset-x-0 bottom-0 mx-auto mb-8 block w-3/4 items-center justify-center rounded bg-black px-6 py-4 text-center  font-bold uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300"
+          >
+            {collection.handle}
+          </Link>
+        </li>
+      ))}
+    </div>
+  );
 }
 
 function GradientBackground() {
   return (
     <div className="fixed top-0 h-full w-full overflow-hidden">
       <div
-        className="absolute  z-10 h-5/6 w-full border-2 border-x-0 bg-neutral-600 bg-cover bg-bottom bg-blend-overlay "
+        className="absolute z-10 h-screen w-full border-2 border-x-0 bg-cover bg-center bg-blend-overlay "
         style={{
-          backgroundImage: 'url(/paul-volkmer-updW-QUccFE-unsplash.jpg',
+          backgroundImage: 'url(public/grailify-lBhxU9ycdcs-unsplash.jpg)',
         }}
       />
     </div>
   );
 }
+
+const QUERY_FEATURED = gql`
+  query indexContent(
+    $country: CountryCode
+    $language: LanguageCode
+    $numCollections: Int!
+  ) @inContext(country: $country, language: $language) {
+    collections(first: $numCollections) {
+      edges {
+        node {
+          handle
+          id
+          title
+          image {
+            id
+            url
+            altText
+            width
+            height
+          }
+        }
+      }
+    }
+  }
+`;
 
 const SEO_QUERY = gql`
   query homeShopInfo {

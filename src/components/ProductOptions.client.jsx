@@ -11,7 +11,7 @@ export default function ProductOptions() {
       {options.map(({name, values}) => {
         return (
           <fieldset key={name} className="mt-8">
-            <legend className="mb-4 text-xl font-medium text-gray-900">
+            <legend className="mb-4 text-xl font-medium text-black">
               {name}
             </legend>
             <div className="flex flex-wrap items-center gap-4">
@@ -31,13 +31,13 @@ export default function ProductOptions() {
                       onChange={() => setSelectedOption(name, value)}
                     />
                     <div
-                      className={`md:text-md cursor-pointer rounded border p-2 text-sm ${
-                        checked ? 'bg-gray-900 text-white' : 'text-gray-900'
+                      className={`cursor-pointer rounded border border-neutral-300 p-3 text-sm md:text-xl ${
+                        checked ? 'bg-black font-bold text-white' : 'text-black'
                       }`}
                     >
                       {name.includes('Color') ? (
                         <div
-                          className=" h-6 w-6"
+                          className="h-8 w-8"
                           style={{backgroundColor: value}}
                         >
                           <span className="sr-only"></span>

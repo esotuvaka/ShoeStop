@@ -7,14 +7,10 @@ import {
   ProductDescription,
   ProductPrice,
   AddToCartButton,
-  BuyNowButton,
 } from '@shopify/hydrogen/client';
 import ProductOptions from './ProductOptions.client';
 import Gallery from './Gallery.client';
-import {
-  BUTTON_PRIMARY_CLASSES,
-  BUTTON_SECONDARY_CLASSES,
-} from './Button.client';
+import {BUTTON_PRIMARY_CLASSES} from './Button.client';
 
 function AddToCartMarkup() {
   const {selectedVariant} = useProduct();
@@ -29,15 +25,10 @@ function AddToCartMarkup() {
         {isOutOfStock ? 'Out of stock' : 'Add to cart'}
       </AddToCartButton>
       {isOutOfStock ? (
-        <p className="text-center text-black">Available in 2-3 weeks</p>
-      ) : (
-        <BuyNowButton
-          variantId={selectedVariant.id}
-          className={BUTTON_SECONDARY_CLASSES}
-        >
-          Buy now
-        </BuyNowButton>
-      )}
+        <p className="text-center font-bold text-black">
+          Available in 2-3 weeks
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -53,7 +44,7 @@ function ProductPrices() {
         variantId={product.selectedVariant.id}
       />
       <ProductPrice
-        className="text-lg font-semibold text-gray-900"
+        className="text-lg font-semibold text-burgundy"
         variantId={product.selectedVariant.id}
       />
     </>
@@ -72,19 +63,20 @@ export default function ProductDetails({product}) {
   return (
     <>
       <ProductProvider data={product} initialVariantId={initialVariant.id}>
-        <div className="my-16 grid grid-cols-1 gap-x-8 md:grid-cols-[2fr,1fr]">
+        <div className="mb-16 grid grid-cols-1 gap-x-8 md:grid-cols-[2fr,1fr]">
+          {/* MOBILE PRODUCT DETAILS SECTION */}
           <div className="mt-5 mb-8 md:hidden">
             <ProductTitle
               as="h1"
               className="mb-4 text-9xl font-bold text-black"
             />
             {product.vendor && (
-              <div className="mb-2 text-sm font-medium text-gray-900">
+              <div className="text-md mb-2 font-medium text-black">
                 {product.vendor}
               </div>
             )}
             <span />
-            <div className="flex justify-between md:block">
+            <div className="flex justify-between text-burgundy md:block">
               <ProductPrices />
             </div>
           </div>
@@ -92,13 +84,13 @@ export default function ProductDetails({product}) {
           <Gallery />
 
           <div>
-            <div className="hidden md:block">
+            <div className="mt-8 hidden md:block">
               <ProductTitle
                 as="h1"
-                className="mb-4 text-5xl font-bold text-black"
+                className="mb-4 text-4xl font-bold text-black"
               />
               {product.vendor && (
-                <div className="mb-2 text-sm font-medium text-gray-900">
+                <div className="mb-2 text-2xl font-medium text-black">
                   {product.vendor}
                 </div>
               )}
@@ -110,7 +102,7 @@ export default function ProductDetails({product}) {
               {sizeChartMetafield?.value && (
                 <a
                   href="#size-chart"
-                  className="my-4 block text-sm tracking-wide text-gray-500 underline"
+                  className="my-4 block text-sm tracking-wide text-gray-300 underline"
                 >
                   Size Chart
                 </a>
@@ -119,9 +111,9 @@ export default function ProductDetails({product}) {
               <div className="items flex space-x-4"></div>
             </div>
             {/* Product Description */}
-            <ProductDescription className="text-md prose border-t border-gray-200 pt-6 text-black" />
+            <ProductDescription className="text-md prose border-t border-gray-300 pt-6 text-black" />
             {sizeChartMetafield?.value && (
-              <div className="border-t border-gray-200"></div>
+              <div className="border-t border-gray-300"></div>
             )}
           </div>
         </div>

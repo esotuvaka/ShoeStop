@@ -6,15 +6,15 @@ import OpenIcon from './OpenIcon';
  */
 export default function LoadingFallback() {
   return (
-    <header className="h-20 lg:h-32 max-w-screen text-gray-700">
-      <div className="fixed z-10 h-20 lg:h-32 w-full bg-white/90 border-b border-black border-opacity-5 px-6 md:px-8 md:py-6 lg:pt-8 lg:pb-0 mx-auto">
-        <div className="h-full flex lg:flex-col place-content-between">
-          <div className="text-center w-full flex justify-between items-center">
-            <div className="hidden lg:block w-16" />
-            <div className="lg:hidden flex justify-center items-center w-7 h-full">
+    <header className="max-w-screen h-20 text-gray-700 lg:h-32">
+      <div className="fixed z-10 mx-auto h-20 w-full border-b border-black border-opacity-5 bg-white/90 px-6 md:px-8 md:py-6 lg:h-32 lg:pt-8 lg:pb-0">
+        <div className="flex h-full place-content-between lg:flex-col">
+          <div className="flex w-full items-center justify-between text-center">
+            <div className="hidden w-16 lg:block" />
+            <div className="flex h-full w-7 items-center justify-center lg:hidden">
               <OpenIcon />
             </div>
-            <p className="font-black uppercase text-3xl tracking-widest">
+            <p className="text-3xl font-black uppercase tracking-widest">
               Piqqi
             </p>
             <CartIcon />

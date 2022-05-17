@@ -6,7 +6,7 @@ import {Link} from '@shopify/hydrogen';
 export default function Footer({collection, product}) {
   return (
     <footer role="contentinfo">
-      <div className="relative border-t border-b border-black border-opacity-5 bg-white">
+      <div className="relative bottom-0 border-t border-neutral-300 bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-14 md:grid-cols-3 md:px-8">
           <div>
             <h2 className="text-md mb-4 font-medium uppercase">Community</h2>
@@ -94,11 +94,11 @@ export default function Footer({collection, product}) {
             </ul>
           </div>
         </div>
-      </div>
-      <div className="bg-gray-50 py-6 px-4 md:px-8">
-        <p className="text-center text-gray-600">
-          © {new Date().getFullYear()} ShoeStop
-        </p>
+        <div className="flex h-12 items-center border-t border-neutral-300 bg-white py-6 px-4 md:px-8 xl:py-8">
+          <p className="text-center text-gray-600">
+            © {new Date().getFullYear()} ShoeStop
+          </p>
+        </div>
       </div>
     </footer>
   );
