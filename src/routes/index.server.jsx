@@ -169,7 +169,7 @@ function GradientBackground() {
       <div
         className="absolute z-10 h-screen w-full border-2 border-x-0 bg-cover bg-center bg-blend-overlay "
         style={{
-          backgroundImage: 'url(public/grailify-lBhxU9ycdcs-unsplash.jpg)',
+          backgroundImage: 'url(/grailify-lBhxU9ycdcs-unsplash.jpg)',
         }}
       />
     </div>
