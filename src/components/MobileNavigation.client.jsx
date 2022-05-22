@@ -2,7 +2,6 @@ import {Fragment, useEffect} from 'react';
 import {Link} from '@shopify/hydrogen/client';
 import {FocusTrap} from '@headlessui/react';
 
-import MobileCountrySelector from './MobileCountrySelector.client';
 import OpenIcon from './OpenIcon';
 
 let scrollPosition = 0;
@@ -24,7 +23,7 @@ export default function MobileNavigation({collections, isOpen, setIsOpen}) {
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden">
+    <div id="MobileNavigation" className="lg:hidden">
       <OpenFocusTrap>
         <button
           type="button"
@@ -50,7 +49,6 @@ export default function MobileNavigation({collections, isOpen, setIsOpen}) {
                 </li>
               ))}
             </ul>
-            <MobileCountrySelector />
           </div>
         ) : null}
       </OpenFocusTrap>

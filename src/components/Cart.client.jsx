@@ -29,6 +29,7 @@ export default function Cart() {
     <div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
+        id="Cart"
         className={`duration-400 fixed top-0 bottom-0 left-0 right-0 z-20 bg-black transition-opacity ${
           isCartOpen ? 'opacity-20' : 'pointer-events-none opacity-0'
         }`}
@@ -59,7 +60,10 @@ export default function Cart() {
 function CartHeader() {
   const {closeCart} = useCartUI();
   return (
-    <header className="sticky top-0 flex items-center justify-between border-b border-gray-300 bg-white py-3 px-6">
+    <header
+      id="Cart"
+      className="sticky top-0 flex items-center justify-between border-b border-gray-300 bg-white py-3 px-6"
+    >
       <button type="button" onClick={closeCart}>
         <ArrowIcon />
         <span className="sr-only">Close cart</span>
@@ -74,7 +78,12 @@ function CartHeader() {
 
 function CartItems() {
   return (
-    <div className="flex-grow px-7" role="table" aria-label="Shopping cart">
+    <div
+      id="Cart"
+      className="w-full flex-grow px-7"
+      role="table"
+      aria-label="Shopping cart"
+    >
       <div role="row" className="sr-only">
         <div role="columnheader">Product image</div>
         <div role="columnheader">Product details</div>
@@ -91,10 +100,11 @@ function LineInCart() {
   const {merchandise} = useCartLine();
   return (
     <div
+      id="Cart"
       role="row"
-      className="flex border-b border-gray-300 py-7 text-gray-900 last:border-b-0"
+      className="flex justify-center border-b border-gray-300 py-7 text-gray-900 last:border-b-0"
     >
-      <div role="cell" className="mr-7 flex-shrink-0">
+      <div role="cell" className="mr-2 flex-shrink-0 sm:mr-7">
         <Link to={`/products/${merchandise.product.handle}`}>
           <CartLineImage
             className="rounded-xl border border-black border-opacity-5 bg-white "
@@ -104,24 +114,23 @@ function LineInCart() {
       </div>
       <div
         role="cell"
-        className="flex-grow-1 mr-4 flex w-full flex-col items-start justify-between"
+        className="flex-grow-1 mx-auto mr-2 flex w-full flex-col items-start justify-between sm:mr-4"
       >
         <Link
           to={`/products/${merchandise.product.handle}`}
-          className="hover:underline"
+          className="hover:underline "
         >
-          <CartLineProductTitle className="text-lg font-medium" />
+          <CartLineProductTitle className="mx-auto text-center text-lg font-medium" />
         </Link>
-        <ul className="space-y-1 text-xs">
+        <ul className="space-y-1 text-sm">
           {merchandise.selectedOptions.map(({name, value}) => (
             <li key={name}>
               {name}: {value}
             </li>
           ))}
         </ul>
-        <CartItemQuantity />
       </div>
-      <div role="cell" className="flex flex-col items-end justify-between">
+      <div role="cell" className="flex flex-col items-end ">
         <CartLineQuantityAdjustButton
           adjust="remove"
           aria-label="Remove from cart"
@@ -129,7 +138,7 @@ function LineInCart() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="mb-12 h-5 w-5"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -140,7 +149,8 @@ function LineInCart() {
             />
           </svg>
         </CartLineQuantityAdjustButton>
-        <CartLinePrice className="text-lg" />
+        <CartLinePrice className="text-lg font-semibold text-burgundy" />
+        <CartItemQuantity />
       </div>
     </div>
   );
@@ -148,11 +158,14 @@ function LineInCart() {
 
 function CartItemQuantity() {
   return (
-    <div className="mt-2 flex items-center overflow-auto rounded border border-gray-300">
+    <div
+      id="Cart"
+      className="mt-2 flex items-center overflow-auto rounded border border-gray-300"
+    >
       <CartLineQuantityAdjustButton
         adjust="decrease"
         aria-label="Decrease quantity"
-        className="disabled:pointer-events-all p-2 disabled:cursor-wait"
+        className="disabled:pointer-events-all disabled:cursor-wait sm:p-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +187,7 @@ function CartItemQuantity() {
       <CartLineQuantityAdjustButton
         adjust="increase"
         aria-label="Increase quantity"
-        className="disabled:pointer-events-all p-2 text-gray-400 disabled:cursor-wait"
+        className="disabled:pointer-events-all text-gray-400 disabled:cursor-wait sm:p-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -195,27 +208,23 @@ function CartItemQuantity() {
 
 function CartFooter() {
   return (
-    <footer className="sticky bottom-0 border-t border-black border-opacity-5 pb-8">
-      <div className="relative h-60 bg-white p-7 text-gray-900">
+    <footer
+      id="Cart"
+      className="sticky bottom-0 border-t border-black border-opacity-5 pb-8"
+    >
+      <div className="relative h-60 bg-white p-7 ">
         <div role="table" aria-label="Cost summary">
           <div role="row" className="flex justify-between">
             <span className="font-semibold" role="rowheader">
-              Subtotal
+              Subtotal asasd
             </span>
             <CartEstimatedCost
               amountType="subtotal"
               role="cell"
-              className="text-right "
+              className="text-right"
             />
           </div>
-          <div role="row" className="mt-2 flex justify-between">
-            <span className="font-semibold" role="rowheader">
-              Shipping
-            </span>
-            <span role="cell" className="uppercase">
-              Free
-            </span>
-          </div>
+          <div role="row" className="mt-2 flex justify-between"></div>
         </div>
         <CartShopPayButton className="my-4 flex w-full justify-center rounded-md bg-[#5a31f4] py-2" />
         <CartCheckoutButton className={BUTTON_PRIMARY_CLASSES}>
@@ -229,7 +238,7 @@ function CartFooter() {
 function CartEmpty() {
   const {closeCart} = useCartUI();
   return (
-    <div className="flex flex-col p-7">
+    <div id="Cart" className="flex flex-col p-7">
       <p className="mb-4 text-center text-lg text-gray-500">
         Your cart is empty
       </p>

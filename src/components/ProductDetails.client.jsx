@@ -17,7 +17,7 @@ function AddToCartMarkup() {
   const isOutOfStock = !selectedVariant.availableForSale;
 
   return (
-    <div className="my-8 space-y-2">
+    <div id="ProductDetails" className="my-5 space-y-2">
       <AddToCartButton
         className={BUTTON_PRIMARY_CLASSES}
         disabled={isOutOfStock}
@@ -63,12 +63,15 @@ export default function ProductDetails({product}) {
   return (
     <>
       <ProductProvider data={product} initialVariantId={initialVariant.id}>
-        <div className="mb-16 grid grid-cols-1 gap-x-8 md:grid-cols-[2fr,1fr]">
+        <div
+          id="ProductDetails"
+          className="mb-16 grid grid-cols-1 gap-x-8 md:grid-cols-[2fr,1fr]"
+        >
           {/* MOBILE PRODUCT DETAILS SECTION */}
           <div className="mt-5 mb-8 md:hidden">
             <ProductTitle
               as="h1"
-              className="mb-4 text-9xl font-bold text-black"
+              className="mb-4 text-3xl font-bold text-black"
             />
             {product.vendor && (
               <div className="text-md mb-2 font-medium text-black">
@@ -83,11 +86,11 @@ export default function ProductDetails({product}) {
 
           <Gallery />
 
-          <div>
+          <div id="ProductDetails">
             <div className="mt-8 hidden md:block">
               <ProductTitle
                 as="h1"
-                className="mb-4 text-4xl font-bold text-black"
+                className="mb-4 text-4xl font-bold text-black sm:text-3xl"
               />
               {product.vendor && (
                 <div className="mb-2 text-2xl font-medium text-black">

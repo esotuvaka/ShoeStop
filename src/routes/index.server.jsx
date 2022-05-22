@@ -108,7 +108,7 @@ function FeaturedProductsBox({country}) {
               to={`/collections/${featuredProductsCollection.handle}`}
               className="m-0 block w-full items-center justify-center rounded bg-black px-6 py-4 text-center  font-bold uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300"
             >
-              Shop all
+              Featured
             </Link>
           </div>
         </>
@@ -139,25 +139,27 @@ function FeaturedCollectionBox({country}) {
   // });
 
   return (
-    <div className="grid h-96 grid-cols-2 rounded-xl bg-white py-8 px-8 sm:grid-cols-4">
+    <div className="grid grid-cols-2 rounded-xl bg-white py-8 sm:grid-cols-4 sm:px-8 lg:h-96">
       {collections.map((collection) => (
-        <li key={collection.id} className="relative list-none">
-          <div className="flex  items-center justify-center">
-            <Image
-              width="300"
-              height="300"
-              data={collection.image}
-              className="mx-auto h-full w-full transition-all duration-500 ease-in-out hover:scale-110"
-            ></Image>
-          </div>
+        <ul key="FeaturedCollectionKey" className="h-52 lg:h-auto">
+          <li key={collection.id} className="relative h-52 list-none lg:h-72 ">
+            <div className=" flex items-center justify-center">
+              <Image
+                width="300"
+                height="300"
+                data={collection.image}
+                className="mx-auto mb-4 h-full w-full transition-all duration-500 ease-in-out hover:scale-110 sm:mb-0"
+              ></Image>
+            </div>
 
-          <Link
-            to={`/collections/${collection.handle}`}
-            className="absolute inset-x-0 bottom-0 mx-auto mb-8 block w-3/4 items-center justify-center rounded bg-black px-6 py-4 text-center  font-bold uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300"
-          >
-            {collection.handle}
-          </Link>
-        </li>
+            <Link
+              to={`/collections/${collection.handle}`}
+              className="absolute inset-x-0 bottom-0 mx-auto mb-4 block w-3/4 items-center justify-center rounded bg-black px-4 py-4  text-center font-bold  uppercase tracking-wider text-white transition-all duration-500 hover:-translate-y-1 hover:bg-burgundy hover:shadow-2xl active:bg-neutral-700 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 sm:px-6"
+            >
+              {collection.handle}
+            </Link>
+          </li>
+        </ul>
       ))}
     </div>
   );
@@ -169,7 +171,8 @@ function GradientBackground() {
       <div
         className="absolute z-10 h-screen w-full border-2 border-x-0 bg-cover bg-center bg-blend-overlay "
         style={{
-          backgroundImage: 'url(/grailify-lBhxU9ycdcs-unsplash.jpg)',
+          backgroundImage:
+            'url(https://raw.githubusercontent.com/esotuvaka/ShoeStop-Hydrogen-Store-TEST/main/public/grailify-lBhxU9ycdcs-unsplash.jpg)',
         }}
       />
     </div>

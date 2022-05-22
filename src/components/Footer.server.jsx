@@ -5,7 +5,7 @@ import {Link} from '@shopify/hydrogen';
  */
 export default function Footer({collection, product}) {
   return (
-    <footer role="contentinfo">
+    <footer id="Footer" role="contentinfo">
       <div className="relative bottom-0 border-t border-neutral-300 bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-14 md:grid-cols-3 md:px-8">
           <div>

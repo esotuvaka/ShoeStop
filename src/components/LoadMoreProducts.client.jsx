@@ -8,7 +8,7 @@ export default function LoadMoreProducts({startingCount}) {
   const {pending, serverProps, setServerProps} = useServerProps();
 
   return (
-    <div className="flex h-14 justify-center">
+    <div id="LoadMoreProducts" className="flex h-14 justify-center">
       {pending ? (
         <SpinnerIcon />
       ) : (

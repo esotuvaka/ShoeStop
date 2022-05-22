@@ -10,7 +10,7 @@ export default function ProductOptions() {
     <>
       {options.map(({name, values}) => {
         return (
-          <fieldset key={name} className="mt-8">
+          <fieldset key={name} id="ProductOptions" className="mt-8">
             <legend className="mb-4 text-xl font-medium text-black">
               {name}
             </legend>
@@ -31,7 +31,7 @@ export default function ProductOptions() {
                       onChange={() => setSelectedOption(name, value)}
                     />
                     <div
-                      className={`cursor-pointer rounded border border-neutral-300 p-3 text-sm md:text-xl ${
+                      className={`flex w-16 cursor-pointer items-center justify-center rounded border border-neutral-300 p-3 text-sm md:text-xl ${
                         checked ? 'bg-black font-bold text-white' : 'text-black'
                       }`}
                     >

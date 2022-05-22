@@ -13,20 +13,20 @@ export default function MobileCountrySelector() {
   const [selectedCountry, setSelectedCountry] = useCountry();
 
   return (
-    <div className="mt-8 rounded border border-gray-200 w-full">
+    <div className="mt-8 w-full rounded border border-gray-200">
       <Listbox onChange={setSelectedCountry}>
         {({open}) => {
           setTimeout(() => setListboxOpen(open));
           return (
             <>
-              <Listbox.Button className="w-full flex justify-between text-sm items-center py-5 px-7">
+              <Listbox.Button className="flex w-full items-center justify-between py-5 px-7 text-sm">
                 {selectedCountry.name}
                 <ArrowIcon isOpen={open} />
               </Listbox.Button>
-              <Listbox.Options className="w-full px-3 pb-2 text-lg overflow-y-auto h-64">
+              <Listbox.Options className="h-64 w-full overflow-y-auto px-3 pb-2 text-lg">
                 <Listbox.Option
                   disabled
-                  className="font-medium px-4 pb-4 w-full text-left uppercase"
+                  className="w-full px-4 pb-4 text-left font-medium uppercase"
                 >
                   Country
                 </Listbox.Option>

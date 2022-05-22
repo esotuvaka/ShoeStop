@@ -47,9 +47,12 @@ export default function Collection({
       <p className="mt-5 mb-5 text-sm text-gray-500">
         {products.length} {products.length > 1 ? 'products' : 'product'}
       </p>
-      <ul className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <ul className="mb-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
-          <li key={product.id}>
+          <li
+            key={product.id}
+            className="rounded border-2 border-neutral-100 hover:border-neutral-400"
+          >
             <ProductCard product={product} />
           </li>
         ))}

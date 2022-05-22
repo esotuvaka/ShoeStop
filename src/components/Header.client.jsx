@@ -23,9 +23,9 @@ export default function Header({collections}) {
   }, [isCartOpen]);
 
   return (
-    <header className="h-20 lg:h-28 " role="banner">
+    <header id="Header" className="h-20 lg:h-28 " role="banner">
       <div
-        className={`fixed z-20 mx-auto w-full border-b border-gray-200 bg-white px-6 shadow-lg md:px-8 lg:py-4 xl:py-8      ${
+        className={`fixed z-20 mx-auto w-full border-b border-gray-200 bg-white py-4 px-6 shadow-lg md:px-8 lg:py-4 xl:py-4      ${
           isMobileNavOpen ? '' : ''
         }`}
       >

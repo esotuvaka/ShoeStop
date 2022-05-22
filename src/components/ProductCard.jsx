@@ -15,7 +15,10 @@ export default function ProductCard({product}) {
   }
 
   return (
-    <div className="text-md relative rounded-lg bg-white py-8   ">
+    <div
+      id="ProductCard"
+      className="text-md relative rounded-lg bg-white py-8   "
+    >
       <Link to={`/products/${product.handle}`}>
         <div className="relative mb-2 flex h-64 items-center justify-center overflow-hidden rounded-lg object-cover py-8">
           {selectedVariant.image ? (
