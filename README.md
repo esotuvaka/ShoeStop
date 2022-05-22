@@ -5,23 +5,38 @@ Hydrogen is an alternative to Next.js for headless eCommerce, and this repo is m
 ## Checklist
 
 - Need to run a Lighthouse check to get first steps for performance, accessibility, and seo improvement
-- Possibly add ID's to different components to make them more navigable when using Chrome DevTools
-- Fix the media queries / layout shifts on different display sizes
-- Look into adding more content to the landing page
-- Change the collections' [handle].server.jsx file to be more aesthetic / cleanup
-- ! Change FeaturedCollections.jsx to Brands.jsx
-- ! Change button theming to a reusable attribute in tailwind.config
-- ! Change product page to have better spacing, and better image sizing
-- ! Change cart to accurately say if an order has free shipping or not (>$50)
+- Research further SEO work that can be done
+- Possibly edit / customize the shopping cart a little more
+
+- ~~Possibly add ID's to different components to make them more navigable when using Chrome DevTools~~
+- ~~Fix the media queries / layout shifts on different display sizes~~
+- ~~Change the collections' [handle].server.jsx file to be more aesthetic / cleanup~~
+- ~~! Change FeaturedCollections.jsx to Brands.jsx~~
+- ~~! Change product page to have better spacing, and better image sizing~~
+- ~~! Change cart to accurately say if an order has free shipping or not (>$50)~~
 
 ## Problems
 
-- Layout shifts on different screen sizes
-- "Brands" section is not responsive
-- Images in individual product pages are too large
-- Cart says ANY item has free shipping (despite only being on orders $50 or more), but moving on to billing section shows a charge for shipping
+
+
+- ~~Layout shifts on different screen sizes~~
+- ~~"Brands" section is not responsive~~
+- ~~Images in individual product pages are too large~~
+- ~~Cart says ANY item has free shipping (despite only being on orders $50 or more), but moving on to billing section shows a charge for shipping~~
 
 ## Versions
+
+### 5/22/2022:
+
+- Changed FeaturedCollections.jsx file to be Brands.jsx
+- Changed product page to have better image sizing and spacing
+- Changed the cart UI to be more navigable / compressed, while also functioning better with multiple different products in cart
+- Worked on some media query issues, but will invesigate further for edge cases (small phones, 4k displays, layout shifts)
+- Changed cart to accurately reflect shipping costs (no actual fix for the static $50 off message in the subtotal calculation, so just removed the text)
+- Removed country selector from the mobile navigation
+- Changed ProductOptions.client.jsx to have consistent option button sizing
+- Changed landing page to hopefully not break under large screen sizes (laptop-desktop)
+- Changed header to have consistent sizing under media queries (previously y-padding was changing with queries, now is consistent)
 
 ### 5/16/2022:
 
