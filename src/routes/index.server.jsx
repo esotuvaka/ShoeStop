@@ -171,8 +171,12 @@ function GradientBackground() {
       <div
         className="absolute z-10 h-screen w-full border-2 border-x-0 bg-cover bg-center bg-blend-overlay "
         style={{
+<<<<<<< HEAD
           backgroundImage:
             'url(https://raw.githubusercontent.com/esotuvaka/ShoeStop-Hydrogen-Store-TEST/main/public/grailify-lBhxU9ycdcs-unsplash.jpg)',
+=======
+          backgroundImage: 'url(https://raw.githubusercontent.com/esotuvaka/ShoeStop-Hydrogen-Store-TEST/main/public/grailify-lBhxU9ycdcs-unsplash.jpg)',
+>>>>>>> d4e0d703ffcc21f82b8f2dcda006da86574b1658
         }}
       />
     </div>
