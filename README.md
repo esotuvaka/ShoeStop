@@ -1,6 +1,8 @@
-# Hydrogen test storefront
+# CONCEPT Hydrogen storefront
 
-Hydrogen is an alternative to Next.js for headless eCommerce, and this repo is my first pass at making a headless storefront
+## NOT LIVE - Shopify Oxygen servers release date are TBD. Please see here @ https://stackblitz.com/github/esotuvaka/ShoeStop-Hydrogen-Store-TEST?file=README.md , but allow adequate time to load and open the preview in a new window (upper right of Stackblitz UI)
+
+### Built with Shopify Hydrogen Framework, TailwindCSS, ViteJS, GraphQL, Shopify as a CMS
 
 ## Checklist
 
@@ -17,14 +19,15 @@ Hydrogen is an alternative to Next.js for headless eCommerce, and this repo is m
 
 ## Problems
 
-
-
-- ~~Layout shifts on different screen sizes~~
-- ~~"Brands" section is not responsive~~
-- ~~Images in individual product pages are too large~~
-- ~~Cart says ANY item has free shipping (despite only being on orders $50 or more), but moving on to billing section shows a charge for shipping~~
+- Media queries can break (need to check for odd sizing / common devices like Macbook)
+- Landing page needs more content, possible link to men / women collections
 
 ## Versions
+
+### 6/14/2022:
+
+- Updated README
+- Now aware of potential specific device media queries like macbooks that Chrome DevTools don't have specific breakpoints for
 
 ### 5/22/2022:
 
